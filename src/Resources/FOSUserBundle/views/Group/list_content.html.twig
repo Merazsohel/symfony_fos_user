@@ -1,0 +1,27 @@
+<div class="fos_user_group_list">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card border-secondary">
+                            <div class="card-header">
+                                <h3 class="mb-0 my-2"></h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    {% for group in groups %}
+                                        <li>
+                                            <a href="{{ path('fos_user_group_show', {'groupName': group.getName()} ) }}">{{ group.getName() }}</a>
+                                            <a href="{{ path('fos_user_group_edit', {'groupName': group.getName()} ) }}"><i style="color: green" class="fa fa-edit"></i></a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

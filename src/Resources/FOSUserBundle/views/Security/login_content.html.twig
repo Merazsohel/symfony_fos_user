@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2"> Login </h3>
+                        </div>
+                        <div class="card-body">
+                            {% if error %}
+                                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                                {% endif %}
+
+                                <label for="username" >Username</label>
+                                <input type="text" class="form-control " id="username" name="_username"
+                                       value="{{ last_username }}" required="required" autocomplete="username"/>
+
+                                <label for="password" class="mt-3">Password</label>
+                                <input type="password" class="form-control" id="password" name="_password"
+                                       required="required" autocomplete="current-password"/>
+
+                                <input type="checkbox" class="mt-3" id="remember_me" name="_remember_me" value="on"/>
+                                <label for="remember_me">Remember me</label>
+
+                                <input type="submit" class="btn btn-info mt-3 float-right" id="_submit" name="_submit"
+                                       value="Login"/>
+                            </form>
+                            <a href="{{ path('fos_user_resetting_request') }}">Forgot Password?</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

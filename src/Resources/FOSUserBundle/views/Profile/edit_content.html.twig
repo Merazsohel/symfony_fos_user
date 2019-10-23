@@ -1,0 +1,24 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2"></h3>
+                        </div>
+                        <div class="card-body">
+                            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+                            {{ form_widget(form) }}
+                            <div>
+                                <input type="submit" class="btn btn-info" value="{{ 'profile.edit.submit'|trans }}"/>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
